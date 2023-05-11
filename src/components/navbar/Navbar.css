@@ -1,4 +1,3 @@
-
 .navbar {
     position: fixed;
     top: 0;
@@ -25,11 +24,6 @@
     letter-spacing: 1px;
 }
 
-.navbar-list {
-
-
-}
-
 .navbar-link:hover {
     color: #00dcff;
 }
@@ -37,5 +31,4 @@
 .logo {
     width: 25%;
     height: 100px;
-
 }

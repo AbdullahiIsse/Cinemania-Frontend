@@ -9,7 +9,6 @@ import Navbar from "./components/navbar/Navbar.tsx";
 import TvSerie from "./pages/tvserie/TvSerie.tsx";
 import Favorites from "./pages/favorites/Favorites.tsx";
 
-
 function App() {
     return (
         <Router>
