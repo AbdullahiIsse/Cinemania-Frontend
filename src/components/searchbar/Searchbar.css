@@ -1,0 +1,18 @@
+.searchImage {
+    width: 100%;
+    max-height: 425px;
+}
+
+.title {
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    text-align: left;
+}
+
+.title h2 {
+    margin: 0;
+    font-size: 125px;
+    font-weight: bold;
+}

@@ -2,12 +2,12 @@ import './App.css';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Movie from "./pages/movie/Movie.tsx";
+import Home from "./pages/home/Home.tsx";
 import Genre from "./pages/genre/Genre.tsx";
 import Profile from "./pages/profile/Profile.tsx";
 import Navbar from "./components/navbar/Navbar.tsx";
 import TvSerie from "./pages/tvserie/TvSerie.tsx";
-import Favorites from "./pages/favorites/favorites.tsx";
+import Favorites from "./pages/favorites/Favorites.tsx";
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Router>
             <Navbar/>
             <Routes>
-                <Route path="/" element={<Movie />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/Genre" element={<Genre />} />
                 <Route path="/TvSeries" element={<TvSerie />} />
                 <Route path="/Profile" element={<Profile />} />
