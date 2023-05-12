@@ -1,10 +1,11 @@
 
 import axios, { AxiosResponse } from 'axios';
-import "../popular/Types.tsx";
-import "../popular/Popular.css";
+import "../toprated/Types.tsx";
+import "../toprated/Toprated.css";
 import {useEffect, useState} from "react";
 
-export default function Popular() {
+export default function Toprated() {
+
     const [movieList, setMovieList] = useState<Movie[]>([]);
 
     useEffect(() => {
@@ -18,7 +19,7 @@ export default function Popular() {
         };
         axios
             .get<MovieListResponse>(
-                'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&page_size=8',
+                'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&page_size=8',
                 options
             )
             .then((response: AxiosResponse<MovieListResponse>) => {
@@ -32,7 +33,7 @@ export default function Popular() {
 
     return (
         <div>
-            <h1>Popular Movies</h1>
+            <h1>Top Rated</h1>
             <div className="movies">
                 {movieList.map((movie: Movie) => (
                     <div key={movie.id} className="movieItems">
