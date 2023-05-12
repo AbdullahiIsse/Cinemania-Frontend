@@ -1,14 +1,12 @@
 import "./Home.css";
 import Searchbar from "../../components/searchbar/Searchbar.tsx";
-import Popular from "../../components/popular/Popular.tsx";
-import Toprated from "../../components/toprated/Toprated.tsx";
+import Movies from "../../components/movies/Movies.tsx";
 
 export default function Home() {
     return (
         <div>
             <Searchbar/>
-            <Popular/>
-            <Toprated/>
+            <Movies/>
         </div>
 
     )
