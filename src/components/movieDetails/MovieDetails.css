@@ -1,0 +1,17 @@
+.moviesdetails h1 {
+    font-size: 24px;
+}
+
+.moviesdetails {
+    margin-top: 100px;
+}
+
+.moviesdetails div {
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.moviesdetails img {
+    width: 300px;
+    height: auto;
+}

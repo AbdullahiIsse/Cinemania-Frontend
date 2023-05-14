@@ -8,16 +8,13 @@ export default function Navbar() {
             <img className="logo" src={logo} alt="logo"/>
             <ul className="navbar-list">
                 <li className="navbar-item">
-                    <Link to="/" className="navbar-link">Home</Link>
-                </li>
-                <li className="navbar-item">
-                    <Link to="/Genre" className="navbar-link">Genre</Link>
+                    <Link to="/" className="navbar-link">Movies</Link>
                 </li>
                 <li className="navbar-item">
                     <Link to="/TvSeries" className="navbar-link">Tv - Series</Link>
                 </li>
                 <li className="navbar-item">
-                    <Link to="/Profile" className="navbar-link">Profile</Link>
+                    <Link to="/Person" className="navbar-link">Person</Link>
                 </li>
                 <li className="navbar-item">
                     <Link to="/Favorites" className="navbar-link">Favorites</Link>
@@ -26,8 +23,3 @@ export default function Navbar() {
         </nav>
     );
 }
-
-
-{/*  <form className="search-form">
-                <input type="text" placeholder="Search" className="search-input" />
-            </form>*/}

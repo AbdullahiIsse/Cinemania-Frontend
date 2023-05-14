@@ -1,4 +1,3 @@
-import "./Home.css";
 import Searchbar from "../../components/searchbar/Searchbar.tsx";
 import Movies from "../../components/movies/Movies.tsx";
 

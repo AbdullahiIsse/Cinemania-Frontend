@@ -1,4 +1,4 @@
-interface Movie {
+interface TVShow {
     id: number;
     poster_path: string;
     title: string;
@@ -6,8 +6,8 @@ interface Movie {
     vote_average: number;
 }
 
-interface MovieListResponse {
+interface TvserieResponse {
     page: number;
-    results: Movie[];
+    results: TVShow[];
 }
 

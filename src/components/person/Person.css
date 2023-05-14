@@ -1,0 +1,16 @@
+.personDetails {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.personDetails div {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.personDetails h2 {
+    font-size: 20px;
+}

@@ -1,32 +1,27 @@
-import './App.css';
-import './index.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/home/Home.tsx";
-import Genre from "./pages/genre/Genre.tsx";
-import Profile from "./pages/profile/Profile.tsx";
+import Person from "./pages/person/Person.tsx";
 import Navbar from "./components/navbar/Navbar.tsx";
-import TvSerie from "./pages/tvserie/TvSerie.tsx";
+import TvSeries from "./pages/tvseries/TvSeries.tsx";
 import Favorites from "./pages/favorites/Favorites.tsx";
+import Movie_Details from "./pages/moviedetails/Movie_Details.tsx";
 
 function App() {
     return (
         <Router>
-            <Navbar/>
+            <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/Genre" element={<Genre />} />
-                <Route path="/TvSeries" element={<TvSerie />} />
-                <Route path="/Profile" element={<Profile />} />
-                <Route path="/Favorites" element={<Favorites />} />
+                <Route path="/tvseries" element={<TvSeries />} />
+                <Route path="/person" element={<Person />} />
+                <Route path="/favorites" element={<Favorites />} />
+                <Route path="/moviedetails/:id" element={<Movie_Details />} />
 
                 {/*route path * means whatever else route you go to. It will redirect you to an Error page. */}
                 <Route path="*" element={<h1> Error page</h1>} />
-
             </Routes>
         </Router>
     );
 }
 
 export default App;
-
