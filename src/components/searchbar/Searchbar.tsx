@@ -7,7 +7,7 @@ export default function Searchbar() {
         <div className="searchImage">
             <img src={searchImage} alt="logo"/>
             <div className="title">
-                <h2>Welcome.</h2>
+                <h2>Welcome</h2>
                 <h3>Millions of movies, TV - Series and personalized toplist to discover. Explore now.</h3>
 
                 <form className="search-form">
