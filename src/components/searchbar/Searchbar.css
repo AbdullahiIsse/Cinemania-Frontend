@@ -28,11 +28,27 @@ h3 {
 .search-form {
     text-align: center;
     margin-top: 20px;
+    position: relative;
 }
 
 .search-input {
     width: 100%;
-    padding: 10px;
-    border-radius: 20px;
     border: none;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.search-button {
+    top: 0;
+    right: -30px;
+    position: absolute;
+    border-radius: 20px;
+    padding: 14px;
+    width: 125px;
+    border: none;
+    background-color: #00dcff;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }

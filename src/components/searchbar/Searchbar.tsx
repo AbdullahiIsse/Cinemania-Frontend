@@ -3,7 +3,6 @@ import "./Searchbar.css";
 
 export default function Searchbar() {
     return (
-
         <div className="searchImage">
             <img src={searchImage} alt="logo"/>
             <div className="title">
@@ -12,11 +11,11 @@ export default function Searchbar() {
 
                 <form className="search-form">
                     <input type="text" placeholder="Search for a movie title..." className="search-input" />
+                    <button type="submit" className="search-button">Search</button>
                 </form>
             </div>
         </div>
-
-    )
+    );
 }
 
 
