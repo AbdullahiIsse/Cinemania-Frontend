@@ -1,0 +1,17 @@
+.seriedetails h1 {
+    font-size: 24px;
+}
+
+.seriedetails {
+    margin-top: 100px;
+}
+
+.seriedetails div {
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.seriedetails img {
+    width: 300px;
+    height: auto;
+}
