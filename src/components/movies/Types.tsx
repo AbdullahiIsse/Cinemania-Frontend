@@ -5,9 +5,3 @@ interface Movie {
     release_date: string;
     vote_average: number;
 }
-
-interface MovieListResponse {
-    page: number;
-    results: Movie[];
-}
-

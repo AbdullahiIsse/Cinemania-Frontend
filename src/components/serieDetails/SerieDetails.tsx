@@ -29,7 +29,7 @@ export function SerieDetails() {
             <div className="seriedetails">
                 <img src={`https://image.tmdb.org/t/p/w300${serieDetails.poster_path}`} />
                 <h1>{serieDetails.name}</h1>
-                <p> <strong> Movie Description: </strong> {serieDetails.overview}</p>
+                <p> <strong> TV Description: </strong> {serieDetails.overview}</p>
                 <p> <strong> Release date:</strong> {serieDetails.first_air_date}</p>
                 <p> <strong>Vote Average:</strong> {serieDetails.vote_average}</p>
                 <p> <strong>Vote count: </strong>  {serieDetails.vote_count}</p>

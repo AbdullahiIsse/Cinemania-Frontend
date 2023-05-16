@@ -1,0 +1,17 @@
+.persondetails h1 {
+    font-size: 24px;
+}
+
+.persondetails {
+    margin-top: 100px;
+}
+
+.persondetails div {
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.persondetails img {
+    width: 300px;
+    height: auto;
+}
