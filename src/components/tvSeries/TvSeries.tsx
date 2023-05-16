@@ -21,7 +21,7 @@ export default function TvSeries() {
 
                 {tvSeries.map((tvShow: TVShow) => (
                     <div key={tvShow.id} className="serieItems">
-                        <Link to={`/seriedetails/${tvShow.id}`} key={tvShow.id} className="movieItems">
+                        <Link to={`/seriedetails/${tvShow.id}`} key={tvShow.id}>
                             <img src={`https://image.tmdb.org/t/p/w300${tvShow.poster_path}`} />
                             <h2>{tvShow.title}</h2>
                             <p>{tvShow.release_date}</p>

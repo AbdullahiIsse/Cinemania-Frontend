@@ -5,7 +5,9 @@ import logo from "../../assets/logo.jpeg";
 export default function Navbar() {
     return (
         <nav className="navbar">
-            <img className="logo" src={logo} alt="logo"/>
+            <Link to={`/`}>
+                <img className="logo" src={logo} />
+            </Link>
             <ul className="navbar-list">
                 <li className="navbar-item">
                     <Link to="/" className="navbar-link">Movies</Link>
