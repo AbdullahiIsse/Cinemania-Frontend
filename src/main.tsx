@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import {MantineProvider} from "@mantine/core";
 import {UserProvider} from "./Context/UserContext.tsx";
 import {Notifications} from "@mantine/notifications";
+import FavoritesProvider from "./Context/FavoritesContext.tsx";
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <MantineProvider>
                 <Notifications/>
                 <UserProvider>
-                    <App/>
+                    <FavoritesProvider>
+                        <App/>
+                    </FavoritesProvider>
                 </UserProvider>
             </MantineProvider>
         </BrowserRouter>
