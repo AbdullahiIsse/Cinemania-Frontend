@@ -76,8 +76,9 @@ const FavoritesProvider = ({children}:FavoritesProviderProps) => {
             const movieResponse = await movie.json();
             setFavoritesListItems(movieResponse);
         }
-        getMoviesById();
-        
+        getMoviesById().catch((error: any) => {
+            console.error(error);
+        });
         
     },[currentUser])
 

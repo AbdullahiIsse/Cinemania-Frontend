@@ -19,7 +19,7 @@ export function SerieDetails() {
     const itemAddedToFavoriteList = favoritesListItems.find(({id}) => id === serieDetails?.id);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const userId = currentUser.uid;
+    const userId = currentUser?.uid;
 
 
     useEffect(() => {
@@ -53,10 +53,17 @@ export function SerieDetails() {
                 <p> <strong> Release date:</strong> {serieDetails.first_air_date}</p>
                 <p> <strong>Vote Average:</strong> {serieDetails.vote_average}</p>
                 <p> <strong>Vote count: </strong>  {serieDetails.vote_count}</p>
-                {
-                    currentUser !== null ?  itemAddedToFavoriteList && <Button onClick={onRemoveFromFavoritesHandler}>Remove from favorites</Button> ||
-                        <Button onClick={onAddToFavoritesHandler}>Add To favorites</Button>:""
-                }
+                <div>
+                    {currentUser === null ? "" :
+                        <div>
+                            {
+                                currentUser !== null ? itemAddedToFavoriteList &&
+                                    <Button onClick={onRemoveFromFavoritesHandler}>Remove from favorites</Button> ||
+                                    <Button onClick={onAddToFavoritesHandler}>Add To favorites</Button> : ""
+                            }
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     );
