@@ -12,6 +12,7 @@ import {
 } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import image from '../../assets/image.svg';
+import {useNavigate} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
     inner: {
@@ -67,6 +68,8 @@ const useStyles = createStyles((theme) => ({
 
 export default function Hero() {
     const { classes } = useStyles();
+    const navigate = useNavigate();
+
     return (
         <div>
             <Container>
@@ -101,10 +104,10 @@ export default function Hero() {
                         </List>
 
                         <Group mt={30}>
-                            <Button radius="xl" size="md" className={classes.control}>
+                            <Button radius="xl" size="md" className={classes.control} onClick={()=> navigate("/")}>
                                View Movies
                             </Button>
-                            <Button variant="default" radius="xl" size="md" className={classes.control}>
+                            <Button variant="default" radius="xl" size="md" className={classes.control} onClick={()=>  navigate('/TvSeries')}>
                                 View Tv-Series
                             </Button>
                         </Group>
