@@ -33,7 +33,7 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const createUserToDbFromAuth = async (userAuth: any) => {
     if (!userAuth) return;
     try {
-        const user = await fetch("http://localhost:8080/api/user", {
+        const user = await fetch("https://cinmania1.azurewebsites.net/api/user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

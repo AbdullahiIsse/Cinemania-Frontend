@@ -10,7 +10,7 @@ interface movie {
 }
 const addListItem = async (movies:movie) => {
     try {
-        const movie = await fetch("http://localhost:8080/api/movie", {
+        const movie = await fetch("https://cinmania1.azurewebsites.net/api/movie", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const addListItem = async (movies:movie) => {
 
 const removeListItem = async (movieId:number) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/movie/${movieId}`, {
+        const response = await fetch(`https://cinmania1.azurewebsites.net/api/movie/${movieId}`, {
             method: 'DELETE',
         });
 
@@ -72,14 +72,14 @@ const FavoritesProvider = ({children}:FavoritesProviderProps) => {
         const getMoviesById = async () => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            const movie = await fetch(`http://localhost:8080/api/movie/${currentUser.uid}`);
+            const movie = await fetch(`https://cinmania1.azurewebsites.net/api/movie/${currentUser.uid}`);
             const movieResponse = await movie.json();
             setFavoritesListItems(movieResponse);
         }
         getMoviesById().catch((error: any) => {
             console.error(error);
         });
-        
+
     },[currentUser])
 
     const addFavoritesListItem = async (Items:movie) => {
