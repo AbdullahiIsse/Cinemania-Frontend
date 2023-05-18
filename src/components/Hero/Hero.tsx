@@ -11,7 +11,7 @@ import {
     rem,
 } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
-import image from './image.svg';
+import image from '../../assets/image.svg';
 
 const useStyles = createStyles((theme) => ({
     inner: {
@@ -65,7 +65,7 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-export default function Searchbar() {
+export default function Hero() {
     const { classes } = useStyles();
     return (
         <div>
