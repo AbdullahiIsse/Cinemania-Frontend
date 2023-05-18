@@ -2,7 +2,7 @@ import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 import {UserContext} from "./UserContext.tsx";
 
 interface movie {
-    id:string,
+    id:number,
     title:string,
     releaseDate:string,
     voteAverage:number,
@@ -29,7 +29,7 @@ const addListItem = async (movies:movie) => {
 };
 
 
-const removeListItem = async (movieId:string) => {
+const removeListItem = async (movieId:number) => {
     try {
         const response = await fetch(`http://localhost:8080/api/movie/${movieId}`, {
             method: 'DELETE',
@@ -50,7 +50,7 @@ const removeListItem = async (movieId:string) => {
 export const FavoritesContext = createContext<{
     favoritesListItems: movie[];
     addFavoritesListItem: (movie: movie) => void;
-    removeFavoritesListItem: (movieId: string) => void;
+    removeFavoritesListItem: (movieId: number) => void;
 }>({
     favoritesListItems: [],
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -86,7 +86,7 @@ const FavoritesProvider = ({children}:FavoritesProviderProps) => {
         const array  = [...favoritesListItems,Items]
         setFavoritesListItems(array)
     }
-    const removeFavoritesListItem = async (movieId:string) => {
+    const removeFavoritesListItem = async (movieId:number) => {
         await removeListItem(movieId);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore

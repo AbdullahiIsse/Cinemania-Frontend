@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import {useState, useContext} from 'react';
 import {createStyles, Table, ScrollArea, rem, Button} from '@mantine/core';
+import {FavoritesContext} from "../../Context/FavoritesContext.tsx";
 
 const useStyles = createStyles((theme) => ({
     header: {
@@ -26,28 +27,34 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface TableScrollAreaProps {
-    data: { name: string; email: string; company: string }[];
+    data: { id: number; title: string; releaseDate: string; voteAverage: number }[];
 }
 
-export function FavoritesList({ data }: TableScrollAreaProps) {
-    const { classes, cx } = useStyles();
+export function FavoritesList({data}: TableScrollAreaProps) {
+    const {removeFavoritesListItem} = useContext(FavoritesContext)
+    const {classes, cx} = useStyles();
     const [scrolled, setScrolled] = useState(false);
 
     const rows = data.map((row) => (
-        <tr key={row.name}>
-            <td>{row.name}</td>
-            <td>{row.email}</td>
-            <td>{row.company}</td>
-            <td><Button>Delete</Button></td>
+        <tr key={row.id}>
+            <td>{row.title}</td>
+            <td>{row.releaseDate}</td>
+            <td>{row.voteAverage}</td>
+            <td>
+                <Button onClick={()=>removeFavoritesListItem(row.id) }>Delete</Button>
+
+            </td>
         </tr>
     ));
 
+
+
     return (
-        <div >
+        <div>
             <h3>Favorite List</h3>
             <ScrollArea h={300} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
                 <Table miw={700}>
-                    <thead className={cx(classes.header, { [classes.scrolled]: scrolled })}>
+                    <thead className={cx(classes.header, {[classes.scrolled]: scrolled})}>
                     <tr>
                         <th>Title</th>
                         <th>ReleaseDate</th>
