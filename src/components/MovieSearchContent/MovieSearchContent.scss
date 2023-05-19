@@ -1,0 +1,37 @@
+.film-container{
+  width:100% ;
+  height: 7em;
+  display: flex;
+  border-bottom: 1px solid #d8d8d852;
+  padding: 6px 8px;
+  align-items: center;
+  cursor: pointer;
+
+
+  .thumbnail-container{
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex: 0.4;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .name{
+    font-size: 17px;
+    color: #000;
+    margin-left: 10px;
+    display: flex;
+    flex: 2;
+  }
+
+  .rating{
+    color: #a1a1a1;
+    display: flex;
+    font-size: 16px;
+    flex: 0.2;
+  }
+}
+
