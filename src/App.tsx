@@ -6,10 +6,10 @@ import TvSeries from "./pages/tvseries/TvSeries.tsx";
 import Favorites from "./pages/favorites/Favorites.tsx";
 import Movie_Details from "./pages/moviedetails/Movie_Details.tsx";
 import Serie_Details from "./pages/seriedetails/Serie_Details.tsx";
-import Person_Details from "./pages/persondetails/Person_Details.tsx";
+import Person_Details from "./pages/personDetails/person_Details.tsx";
 import Navbar from "./pages/Navigation/Navbar.tsx";
 import Authentication from "./pages/Authentication/Authentication.tsx";
-import Movies from "./pages/Movies/Movies.tsx";
+import Movie from "./pages/Movies/Movie.tsx";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Navbar />} >
                     <Route index element={<Home />} />
-                    <Route path="/movies" element={<Movies />} />
+                    <Route path="/movies" element={<Movie />} />
                     <Route path="/tvseries" element={<TvSeries />} />
                     <Route path="/person" element={<Person />} />
                     <Route path="/favorites" element={<Favorites />} />

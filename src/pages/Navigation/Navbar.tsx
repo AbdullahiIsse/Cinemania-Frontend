@@ -27,7 +27,7 @@ export default function Navbar() {
                     </Link>
 
                     <Link className='nav-link' to='/Person'>
-                        Actors
+                        Persons
                     </Link>
 
                     {currentUser === null ?

@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { getTVseries} from './Service.tsx';
 import './TvSeries.css';
 import {Link} from "react-router-dom";
+import CardList from "../card-list/card-list.tsx";
+import {TVShow} from "../serieDetails/Types.tsx";
 
 export default function TvSeries() {
     const [tvSeries, setTvSeries] = useState<TVShow[]>([]);
 
     useEffect(() => {
-        getTVseries().then((series) => {
+        getTVseries().then((series:TVShow) => {
             setTvSeries(series);
         });
     }, []);
@@ -15,18 +17,16 @@ export default function TvSeries() {
     return (
         <div>
 
-            <h1>Tv - Series</h1>
+            <h2>Popular Tv - Series:</h2>
 
             <div className="series">
 
                 {tvSeries.map((tvShow: TVShow) => (
                     <div key={tvShow.id} className="serieItems">
                         <Link to={`/seriedetails/${tvShow.id}`} key={tvShow.id}>
-                            <img src={`https://image.tmdb.org/t/p/w300${tvShow.poster_path}`} />
-                            <h2>{tvShow.title}</h2>
-                            <p>{tvShow.release_date}</p>
-                            <p className="vote_average">{tvShow.vote_average}</p>
-                           </Link>
+                            <CardList category={tvShow.first_air_date} heading={tvShow.name} backgroundImage={`https://image.tmdb.org/t/p/w300${tvShow.poster_path}`} />
+
+                        </Link>
                     </div>
                 ))}
             </div>

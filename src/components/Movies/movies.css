@@ -3,41 +3,41 @@ h1 {
     margin-bottom: 18px;
 }
 
-.series {
+.movies {
     display: grid;
 
 }
 
 @media(min-width: 540px){
-    .series{
+    .movies{
         grid-template-columns: repeat(1, 1fr);
     }
 }
 
 @media(min-width: 960px){
-    .series{
+    .movies{
         grid-template-columns: repeat(5, 1fr);
     }
 }
 
 
-.series div {
+.movies div {
     width: 245px;
     text-align: center;
 }
 
-.series img {
+.movies img {
     width: 100%;
     height: auto;
 }
 
-.serieItems {
+.movieItems {
     padding: 1px;
     color: black;
 }
 
 
-.serieItems h2 {
+.movieItems h2 {
     font-size: 15px;
 }
 
@@ -56,5 +56,4 @@ p {
     border-radius: 5px;
     border: 2px solid #21c94a;
 }
-
 
