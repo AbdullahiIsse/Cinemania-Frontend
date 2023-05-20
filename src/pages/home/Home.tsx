@@ -1,5 +1,5 @@
 import Hero from "../../components/Hero/Hero.tsx";
-import Movies from "../../components/movies/Movies.tsx";
+import MoviesAndSeries from "../../components/moviesAndSeries/MoviesAndSeries.tsx";
 import {Outlet} from "react-router-dom";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
         <div>
             <Outlet/>
             <Hero/>
-            <Movies/>
+            <MoviesAndSeries/>
         </div>
 
     )

@@ -77,7 +77,7 @@ export default function Hero() {
                              <span className={classes.highlight}>Welcome</span> to<br/>Cinemania
                         </Title>
                         <Text color="dimmed" mt="md">
-                            A Site that host Millions of movies, TV - Series and personalized toplist to discover. Explore now.
+                            A site that host Millions of movies, TV - Series and personalized toplist to discover. Explore now.
                         </Text>
 
                         <List

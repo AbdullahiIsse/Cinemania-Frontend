@@ -15,11 +15,10 @@ export default function Navbar() {
             <div className='navigation'>
                 <Link className='logo-container' to='/'>
                     <span> Cinemania</span>
-
                 </Link>
                 <div className='nav-links-container'>
 
-                    <Link className='nav-link' to='/'>
+                    <Link className='nav-link' to='/movies'>
                         Movies
                     </Link>
 
@@ -28,9 +27,8 @@ export default function Navbar() {
                     </Link>
 
                     <Link className='nav-link' to='/Person'>
-                        Person
+                        Actors
                     </Link>
-
 
                     {currentUser === null ?
                         <Link className='nav-link' to='/auth'>
@@ -43,13 +41,9 @@ export default function Navbar() {
                                     <span>Sign Out</span>
                                 </Link>
                             </div>
-
-
                         )
                     }
-
                 </div>
-
             </div>
             <Outlet/>
         </Fragment>

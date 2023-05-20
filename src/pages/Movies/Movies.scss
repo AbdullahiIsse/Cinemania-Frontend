@@ -1,0 +1,16 @@
+.test {
+  display: grid;
+  padding-top: 60px;
+}
+
+@media(min-width: 570px){
+  .test{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media(min-width: 960px){
+  .test{
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

@@ -103,7 +103,7 @@ const SearchBar = () => {
                 <span className="search-icon">
                     <IoSearch/>
                 </span>
-                <input className='search-input' placeholder={"Search for Movies"} onFocus={expandSearchContainer} value={searchQuery} onChange={changeHandler}></input>
+                <input className='search-input' placeholder={"Search for MoviesAndSeries"} onFocus={expandSearchContainer} value={searchQuery} onChange={changeHandler}></input>
                 <span className="close-icon" onClick={closeIconOnClickHandler}>
                     <IoClose/>
                 </span>

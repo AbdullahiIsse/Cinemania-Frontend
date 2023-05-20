@@ -1,7 +1,5 @@
-import  {createContext, ReactNode, useEffect, useState} from 'react';
+import {createContext, ReactNode, useEffect, useState} from 'react';
 import {createUserToDbFromAuth, onAuthStateChangedListener} from "../Utils/Firebase.ts";
-
-
 
 export const UserContext = createContext({
     currentUser: null,
@@ -9,12 +7,12 @@ export const UserContext = createContext({
 });
 
 type UserProviderProps = {
-    children:ReactNode
+    children: ReactNode
 }
 
-export const UserProvider = ({children}:UserProviderProps) => {
+export const UserProvider = ({children}: UserProviderProps) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const value:any = {currentUser, setCurrentUser};
+    const value: any = {currentUser, setCurrentUser};
     useEffect(() => {
 
         const unsubscribe = onAuthStateChangedListener(async (user: any) => {

@@ -1,5 +1,5 @@
-export async function getPopularMovies() {
-    const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+export async function getTrendingMovies() {
+    const url = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
     const options = {
         method: 'GET',
         headers: {
@@ -24,8 +24,8 @@ export async function getPopularMovies() {
     }
 }
 
-export async function getTopRatedMovies() {
-    const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
+export async function getTrendingSeries() {
+    const url = 'https://api.themoviedb.org/3/trending/tv/week?language=en-US';
     const options = {
         method: 'GET',
         headers: {
@@ -38,8 +38,8 @@ export async function getTopRatedMovies() {
         const response = await fetch(url, options);
         if (response.ok) {
             const data = await response.json();
-            const movieList: Movie[] = data.results;
-            return movieList;
+            const seriesList: TvSeries[] = data.results;
+            return seriesList;
         } else {
             console.error('Request failed with status:', response.status);
             return [];
