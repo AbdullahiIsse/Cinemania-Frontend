@@ -1,5 +1,6 @@
-export async function getTVseries() {
-    const url = 'https://api.themoviedb.org/3/trending/tv/day?language=en-US';
+
+export async function getPopularTVseries(pageNum:string) {
+    const url = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=${pageNum}`;
     const options = {
         method: 'GET',
         headers: {
@@ -12,7 +13,7 @@ export async function getTVseries() {
         const response = await fetch(url, options);
         if (response.ok) {
             const data = await response.json();
-            const tvShows: TVShow[] = data.results;
+            const tvShows: TvSeries[] = data.results;
             return tvShows;
         } else {
             console.error('Request failed with status:', response.status);

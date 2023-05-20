@@ -4,16 +4,19 @@ import {getPopularMovies} from "./Service.tsx";
 import {Link} from "react-router-dom";
 import {getMovieDetails} from "../movieDetails/Service.tsx";
 import CardList from "../card-list/card-list.tsx";
+import AppPagination from "../pagination/AppPagination.tsx";
+
 
 const Movies = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
+    const [activePage, setActivePage] = useState(1);
 
 
     useEffect(() => {
-        getPopularMovies().then((movies) => {
+        getPopularMovies(`${activePage}`).then((movies) => {
             setPopularMovies(movies);
         });
-    }, []);
+    }, [activePage]);
 
 
     return (
@@ -27,6 +30,11 @@ const Movies = () => {
                     </div>
                 ))}
             </div>
+
+            <div className='pagination'>
+                <AppPagination activePage={activePage} setPage={setActivePage} />
+            </div>
+
 
         </div>
     )

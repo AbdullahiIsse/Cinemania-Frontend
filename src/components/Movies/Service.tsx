@@ -1,5 +1,5 @@
-export async function getPopularMovies() {
-    const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+export async function getPopularMovies(pageNum:string) {
+    const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageNum}`;
     const options = {
         method: 'GET',
         headers: {
