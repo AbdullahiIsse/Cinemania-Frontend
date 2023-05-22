@@ -77,6 +77,18 @@ export function SerieDetails() {
 
     return (
         <div>
+            <div>
+                {currentUser === null ? <h3> Sign in to add Series to favorite list</h3> :
+                    <div>
+                        {
+                            currentUser !== null ? itemAddedToFavoriteList &&
+                                <Button onClick={onRemoveFromFavoritesHandler}>Remove from favorites</Button> ||
+                                <Button onClick={onAddToFavoritesHandler}>Add To favorites</Button> : ""
+                        }
+                    </div>
+                }
+            </div>
+
             <div className="seriedetails">
                 <img src={`https://image.tmdb.org/t/p/w300${serieDetails.poster_path}`}/>
                 <br/>
@@ -112,18 +124,20 @@ export function SerieDetails() {
                 <h2>Cast & Crew:</h2>
                 <div className='series_details_credit_cast'>
                     {serieCredits?.cast.map((serieDetailsCredit) => {
-                        const images = serieDetailsCredit.profile_path === null ? defaultImages:`https://image.tmdb.org/t/p/w300${serieDetailsCredit.profile_path}`;
+                        const images = serieDetailsCredit.profile_path === null ? defaultImages : `https://image.tmdb.org/t/p/w300${serieDetailsCredit.profile_path}`;
                         return (
                             <Link to={`/persondetails/${serieDetailsCredit.id}`}>
-                                <CardList category={serieDetailsCredit.known_for_department} heading={serieDetailsCredit.name} backgroundImage={images}/>
+                                <CardList category={serieDetailsCredit.known_for_department}
+                                          heading={serieDetailsCredit.name} backgroundImage={images}/>
                             </Link>
                         )
                     })}
                     {serieCredits?.crew.map((serieDetailsCredit) => {
-                        const images = serieDetailsCredit.profile_path === null ? defaultImages:`https://image.tmdb.org/t/p/w300${serieDetailsCredit.profile_path}`;
+                        const images = serieDetailsCredit.profile_path === null ? defaultImages : `https://image.tmdb.org/t/p/w300${serieDetailsCredit.profile_path}`;
                         return (
                             <Link to={`/persondetails/${serieDetailsCredit.id}`}>
-                                <CardList category={serieDetailsCredit.job} heading={serieDetailsCredit.name} backgroundImage={images}/>
+                                <CardList category={serieDetailsCredit.job} heading={serieDetailsCredit.name}
+                                          backgroundImage={images}/>
                             </Link>
 
                         )
@@ -135,8 +149,8 @@ export function SerieDetails() {
                 <br/>
                 <h2>Recommendations:</h2>
                 <div className='series_details_credit_cast'>
-                    {serieRecommendation?.results.map((serieRecom:TVShow) => {
-                        const images = serieRecom.poster_path === null ? defaultImages:`https://image.tmdb.org/t/p/w300${serieRecom.poster_path}`;
+                    {serieRecommendation?.results.map((serieRecom: TVShow) => {
+                        const images = serieRecom.poster_path === null ? defaultImages : `https://image.tmdb.org/t/p/w300${serieRecom.poster_path}`;
 
                         return (
                             <button onClick={() => {
@@ -146,25 +160,15 @@ export function SerieDetails() {
                                 });
                             }}>
                                 <Link to={`/seriedetails/${serieRecom.id}`}>
-                                    <CardList category={serieRecom.first_air_date} heading={serieRecom.name} backgroundImage={images}/>
+                                    <CardList category={serieRecom.first_air_date} heading={serieRecom.name}
+                                              backgroundImage={images}/>
                                 </Link>
                             </button>
                         )
-                    }) }
+                    })}
 
-                <div>
-                    {currentUser === null ? "" :
-                        <div>
-                            {
-                                currentUser !== null ? itemAddedToFavoriteList &&
-                                    <Button onClick={onRemoveFromFavoritesHandler}>Remove from favorites</Button> ||
-                                    <Button onClick={onAddToFavoritesHandler}>Add To favorites</Button> : ""
-                            }
-                        </div>
-                    }
                 </div>
             </div>
-        </div>
         </div>
     );
 }
