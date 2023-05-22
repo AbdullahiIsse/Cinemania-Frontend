@@ -94,6 +94,8 @@ export function MovieDetails() {
             </div>
             <div className="moviesdetails">
                 <img src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}/>
+                <br/>
+                <br/>
                 <h1>{movieDetails.title}</h1>
                 <p><strong> Movie Description: </strong> <br/> {movieDetails.overview}</p>
                 <br/>

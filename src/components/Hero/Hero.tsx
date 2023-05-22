@@ -11,7 +11,7 @@ import {
 } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import image from '../../assets/image.svg';
-import SearchBar from "../Search-bar/search-bar.tsx";
+import MovieSearchBar from "../Search-bar/Movie/movie-search-bar.tsx";
 
 const useStyles = createStyles((theme) => ({
     inner: {
@@ -102,7 +102,7 @@ export default function Hero() {
                         </List>
 
                         <Group mt={30}>
-                            <SearchBar/>
+                            <MovieSearchBar/>
 
                         </Group>
                     </div>
