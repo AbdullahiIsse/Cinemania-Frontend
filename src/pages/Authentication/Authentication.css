@@ -4,3 +4,17 @@
     justify-content: space-between;
     margin: 30px auto;
 }
+
+@media (min-width: 400px) {
+    .authentication-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 200px;
+    }
+}
+
+@media (min-width: 940px) {
+    .authentication-container {
+        display: flex;
+    }
+}
