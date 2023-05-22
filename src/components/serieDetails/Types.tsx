@@ -1,3 +1,4 @@
+
 interface Genre {
     id: number;
     name: string;
@@ -52,4 +53,23 @@ export interface TVShow {
     seasons: Season[];
     vote_average: number;
     vote_count: number;
+}
+
+interface TvSeriesCastAndCrew {
+    id:number;
+    known_for_department:string;
+    name:string;
+    profile_path:string;
+    character:string;
+    job:string;
+}
+
+export interface TvSeriesCredit {
+    id:number;
+    cast:[TvSeriesCastAndCrew];
+    crew:[TvSeriesCastAndCrew];
+}
+
+export interface SeriesRecommendations{
+    results:[TVShow]
 }
