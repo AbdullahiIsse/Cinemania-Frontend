@@ -1,4 +1,4 @@
-export async function getPerson(): Promise<Person[]> {
+export async function getPerson(pageNum:number): Promise<Person[]> {
     const options = {
         method: 'GET',
         headers: {
@@ -8,7 +8,7 @@ export async function getPerson(): Promise<Person[]> {
     };
 
     try {
-        const response = await fetch('https://api.themoviedb.org/3/trending/person/day?language=en-US', options);
+        const response = await fetch(`https://api.themoviedb.org/3/person/popular?language=en-US&page=${pageNum}`, options);
         const data = await response.json();
         return data.results as Person[];
     } catch (err) {

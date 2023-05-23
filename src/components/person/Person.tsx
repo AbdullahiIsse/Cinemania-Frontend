@@ -2,17 +2,20 @@ import { useEffect, useState } from 'react';
 import { getPerson } from '../person/Service.tsx';
 import {Link} from "react-router-dom";
 import './Person.css';
+import AppPagination from "../pagination/AppPagination.tsx";
 
 
 
 export default function Person() {
     const [person, setPerson] = useState<Person[]>([]);
+    const [activePage, setActivePage] = useState(1);
+
 
     useEffect(() => {
-        getPerson().then((persons) => {
+        getPerson(activePage).then((persons) => {
             setPerson(persons);
         });
-    }, []);
+    }, [activePage]);
 
     return (
         <div>
@@ -28,6 +31,9 @@ export default function Person() {
                         </Link>
                     </div>
                 ))}
+            </div>
+            <div className='pagination'>
+                <AppPagination activePage={activePage} setPage={setActivePage} />
             </div>
         </div>
     );
