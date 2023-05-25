@@ -30,6 +30,10 @@ export default function Navbar() {
                         Persons
                     </Link>
 
+                    <Link className='nav-link' to='/Statistic'>
+                        Statistic
+                    </Link>
+
                     {currentUser === null ?
                         <Link className='nav-link' to='/auth'>
                             Sign In

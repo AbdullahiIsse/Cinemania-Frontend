@@ -1,5 +1,4 @@
 export interface Person {
-
     birthday: string;
     id: number;
     known_for_department: string;
@@ -8,8 +7,8 @@ export interface Person {
     profile_path: string | null;
     gender:number;
     biography:string;
+    known_for: Movie[];
 }
-
 interface Movie {
     id: number;
     poster_path: string;
