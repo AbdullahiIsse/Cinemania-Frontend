@@ -6,6 +6,7 @@ interface movie {
     title:string,
     releaseDate:string,
     voteAverage:number,
+    image:string,
     userId:string
 }
 const addListItem = async (movies:movie) => {
@@ -29,9 +30,9 @@ const addListItem = async (movies:movie) => {
 };
 
 
-const removeListItem = async (movieId:number) => {
+const removeListItem = async (userId:string,movieId:number) => {
     try {
-        const response = await fetch(`https://cinmania1.azurewebsites.net/api/movie/${movieId}`, {
+        const response = await fetch(`https://cinmania1.azurewebsites.net/api/movie/${userId}/${movieId}`, {
             method: 'DELETE',
         });
 
@@ -50,7 +51,7 @@ const removeListItem = async (movieId:number) => {
 export const FavoritesContext = createContext<{
     favoritesListItems: movie[];
     addFavoritesListItem: (movie: movie) => void;
-    removeFavoritesListItem: (movieId: number) => void;
+    removeFavoritesListItem: (userId:string,movieId:number) => void;
 }>({
     favoritesListItems: [],
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -87,8 +88,8 @@ const FavoritesProvider = ({children}:FavoritesProviderProps) => {
         const array  = [...favoritesListItems,Items]
         setFavoritesListItems(array)
     }
-    const removeFavoritesListItem = async (movieId:number) => {
-        await removeListItem(movieId);
+    const removeFavoritesListItem = async (userId:string,movieId:number) => {
+        await removeListItem(userId,movieId);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         setFavoritesListItems(favoritesListItems.filter(movie => movie.id !== movieId));

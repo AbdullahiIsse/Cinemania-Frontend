@@ -67,12 +67,13 @@ export function SerieDetails() {
             title: serieDetails.name,
             releaseDate: serieDetails.first_air_date,
             voteAverage: serieDetails.vote_average,
+            image:serieDetails.poster_path,
             userId
         })
     }
 
     const onRemoveFromFavoritesHandler = () => {
-        removeFavoritesListItem(serieDetails.id)
+        removeFavoritesListItem(currentUser.uid,serieDetails.id)
     }
 
     return (
@@ -114,10 +115,6 @@ export function SerieDetails() {
                 <p><strong>TMDB Average Rating:</strong> {serieDetails.vote_average}</p>
                 <br/>
                 <p><strong>TMDB Rating Vote count: </strong> {serieDetails.vote_count}</p>
-                <br/>
-                <p><strong>CINEMANIA Average Rating:</strong></p>
-                <br/>
-                <p><strong>CINEMANIA Rating Vote count: </strong></p>
                 <br/>
                 <br/>
 

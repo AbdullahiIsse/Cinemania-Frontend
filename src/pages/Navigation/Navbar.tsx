@@ -4,9 +4,11 @@ import "./Navbar.scss";
 import {Fragment} from "react";
 import {UserContext} from "../../Context/UserContext.tsx";
 import {signOutUser} from "../../Utils/Firebase.ts";
+import {FollowerContext} from "../../Context/FollowContext.tsx";
 
 export default function Navbar() {
     const {currentUser} = useContext(UserContext)
+    const {followersList} = useContext(FollowerContext)
     const signOutHandler = async () => {
         await signOutUser();
     }
@@ -41,6 +43,14 @@ export default function Navbar() {
                                 <Link className='nav-link' to='/Favorites'>
                                     Favorites
                                 </Link>
+                                <Link className='nav-link' to='/Follower'>
+                                    Follower: {followersList.length}
+                                </Link>
+
+                                <Link className='nav-link' to='/Users'>
+                                    Users
+                                </Link>
+
                                 <Link className='nav-link' onClick={signOutHandler} to={""}>
                                     <span>Sign Out</span>
                                 </Link>

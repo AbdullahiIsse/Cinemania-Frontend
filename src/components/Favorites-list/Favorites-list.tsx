@@ -1,6 +1,7 @@
 import {useState, useContext} from 'react';
 import {createStyles, Table, ScrollArea, rem, Button} from '@mantine/core';
 import {FavoritesContext} from "../../Context/FavoritesContext.tsx";
+import {UserContext} from "../../Context/UserContext.tsx";
 
 const useStyles = createStyles((theme) => ({
     header: {
@@ -32,6 +33,7 @@ interface TableScrollAreaProps {
 
 export function FavoritesList({data}: TableScrollAreaProps) {
     const {removeFavoritesListItem} = useContext(FavoritesContext)
+    const {currentUser} = useContext(UserContext)
     const {classes, cx} = useStyles();
     const [scrolled, setScrolled] = useState(false);
 
@@ -41,7 +43,7 @@ export function FavoritesList({data}: TableScrollAreaProps) {
             <td>{row.releaseDate}</td>
             <td>{row.voteAverage}</td>
             <td>
-                <Button onClick={()=>removeFavoritesListItem(row.id) }>Delete</Button>
+                <Button onClick={()=>removeFavoritesListItem(currentUser.uid,row.id) }>Delete</Button>
 
             </td>
         </tr>

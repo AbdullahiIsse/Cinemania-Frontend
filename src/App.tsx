@@ -11,6 +11,8 @@ import Navbar from "./pages/Navigation/Navbar.tsx";
 import Authentication from "./pages/Authentication/Authentication.tsx";
 import Movie from "./pages/Movies/Movie.tsx";
 import Statistic from "./pages/Statistic/Statistic.tsx";
+import Follower from "./pages/Follower/follower.tsx";
+import Users from "./pages/Users/Users.tsx";
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
                     <Route path="/person" element={<Person />} />
                     <Route path="/favorites" element={<Favorites />} />
                     <Route path="/statistic" element={<Statistic />} />
+                    <Route path="/follower" element={<Follower />} />
+                    <Route path="/users" element={<Users />} />
                     <Route path="/auth" element={<Authentication />} />
                     <Route path="/moviedetails/:id" element={<Movie_Details />} />
                     <Route path="/seriedetails/:id" element={<Serie_Details />} />

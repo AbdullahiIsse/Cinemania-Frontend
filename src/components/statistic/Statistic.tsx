@@ -42,10 +42,11 @@ const Statistic = () => {
                     </Link>
                         <h3> {movie.title}</h3>
                         <div className="voteCount">
+                            <h3> Vote Count: {movie.vote_count} </h3>
                             <div
                                 className="voteCountBar"
                                 style={{ width: `${(movie.vote_count / getMaxVoteCountMovies()) * 100}%` }}
-                            >  <h3> Vote_count: {movie.vote_count} </h3>
+                            >
                             </div>
                         </div>
                     </div>
@@ -66,10 +67,11 @@ const Statistic = () => {
                         </Link>
                         <h3> {tvshow.name}</h3>
                         <div className="voteCount">
+                            <h3> Vote Count: {tvshow.vote_count} </h3>
                             <div
                                 className="voteCountBar"
                                 style={{ width: `${(tvshow.vote_count / getMaxVoteCountTvSeries()) * 100}%` }}
-                            >  <h3> Vote_count: {tvshow.vote_count} </h3>
+                            >
                             </div>
                         </div>
                     </div>

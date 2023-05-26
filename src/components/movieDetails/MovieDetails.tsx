@@ -67,12 +67,13 @@ export function MovieDetails() {
             title: movieDetails.title,
             releaseDate: movieDetails.release_date,
             voteAverage: movieDetails.vote_average,
+            image:movieDetails.poster_path,
             userId
         })
     }
 
     const onRemoveFromFavoritesHandler = () => {
-        removeFavoritesListItem(movieDetails.id)
+        removeFavoritesListItem(userId,movieDetails.id,)
     }
 
     const movieRunTimeHour = Math.floor(movieDetails.runtime / 60);
@@ -122,9 +123,6 @@ export function MovieDetails() {
                 <br/>
                 <p><strong>TMDB Rating Vote count: </strong> {movieDetails.vote_count}</p>
                 <br/>
-                <p><strong>CINEMANIA Average Rating:</strong> </p>
-                <br/>
-                <p><strong>CINEMANIA Rating Vote count: </strong> </p>
 
                 <br/>
                 <h2>Cast & Crew:</h2>
