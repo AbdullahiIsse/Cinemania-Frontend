@@ -8,20 +8,23 @@ import {UserProvider} from "./Context/UserContext.tsx";
 import {Notifications} from "@mantine/notifications";
 import FavoritesProvider from "./Context/FavoritesContext.tsx";
 import FollowerProvider from "./Context/FollowContext.tsx";
+import Loading from "./components/Loading/Loading.tsx";
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <BrowserRouter>
-            <MantineProvider>
-                <Notifications/>
-                <UserProvider>
-                    <FavoritesProvider>
-                        <FollowerProvider>
-                            <App/>
-                        </FollowerProvider>
-                    </FavoritesProvider>
-                </UserProvider>
-            </MantineProvider>
+            <UserProvider>
+                <FavoritesProvider>
+                    <FollowerProvider>
+                        <MantineProvider>
+                            <Notifications/>
+                            <Loading>
+                                <App/>
+                            </Loading>
+                        </MantineProvider>
+                    </FollowerProvider>
+                </FavoritesProvider>
+            </UserProvider>
         </BrowserRouter>
     </React.StrictMode>,
 )

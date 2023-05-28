@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../../Context/UserContext.tsx";
-import {getFollowedUserByUserId, getFollowersByUserId, removeFollower} from "./Service.tsx";
+import {getFollowedUserByUserId, getFollowersByUserId, RemoveFollower} from "./Service.tsx";
 import {FollowedUser, followerUserMovie} from "./types.tsx";
 import defaultImages from "../../assets/images.png";
 import CardList from "../card-list/card-list.tsx";
@@ -17,10 +17,7 @@ const FollowerList = () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const userId = currentUser.uid;
-    let followedId = "";
-    followersMovieSeiesList.map((f) => (
-        followedId = f.userId
-    ))
+
 
     useEffect(() => {
         getFollowersByUserId(userId)
@@ -43,20 +40,13 @@ const FollowerList = () => {
     }, [userId]);
 
 
-    const UnFollowButton = async () => {
-        await removeFollower(userId, followedId);
-        const newFollowerList = followersMovieSeiesList.filter(
-            (follower) => follower.userId !== userId && follower.followedId !== followedId
-        );
-        setFollowersMovieSeiesList(newFollowerList);
-        window.location.reload();
-    }
+
 
     const rows = followedUserList.map((follow) => (
         <tr key={follow.email}>
             <td>{follow.email}</td>
             <td>{follow.displayName}</td>
-            <td><Button onClick={UnFollowButton}>Unfollow</Button></td>
+            <td><Button onClick={async ()=> {  await RemoveFollower(userId, follow.email);   window.location.reload();} }>Unfollow</Button></td>
         </tr>
     ));
 
@@ -68,14 +58,14 @@ const FollowerList = () => {
             <br/>
             <br/>
             {followersMovieSeiesList.length === 0 ? (
-                <div>Follow a user to view there favorite list or wait for the user to put movies/tv-series in there favorite list</div>
+                <div>Follow a user to view there favorite movies/tv-series list or wait for the user to put movies/tv-series in there favorite list</div>
             ) : (
                 <>
                     {Array.from(new Set(followersMovieSeiesList.map(f => f.email))).map((email) => (
                         <div key={email}>
                             <h3>Email: {email}</h3>
                             <br/>
-                            <Button onClick={UnFollowButton}>Unfollow</Button>
+                            <Button onClick={async ()=> {  await RemoveFollower(userId, email);   window.location.reload();} }>Unfollow</Button>
 
                             <div className='follower-list'>
                                 {followersMovieSeiesList

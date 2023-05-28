@@ -43,10 +43,10 @@ export async function getFollowedUserByUserId(userId: string) {
     }
 }
 
-export const removeFollower = async (userId: string, followedId: string) => {
+export const RemoveFollower = async (userId: string, email: string) => {
     try {
         const response = await fetch(
-            `https://cinmania1.azurewebsites.net/api/follower/${userId}/${followedId}`,
+            `https://cinmania1.azurewebsites.net/api/follower/email/${userId}/${email}`,
             {
                 method: 'DELETE',
             }
