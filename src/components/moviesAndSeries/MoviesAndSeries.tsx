@@ -23,7 +23,7 @@ export default function MoviesAndSeries() {
 
     return (
         <div>
-            <h1>Trending Movies:</h1>
+            <h1>Trending Movies in the last 7 Days:</h1>
 
             <div className="movies">
                 {trendingMovies.map((movie: Movie) => (
@@ -34,8 +34,12 @@ export default function MoviesAndSeries() {
                     </div>
                 ))}
             </div>
+                <br/>
+            <br/>
+            <h1>Trending TV-Series in the last 7 Days: </h1>
 
-            <h1>Trending TV-Series: </h1>
+            <br/>
+            <br/>
             <div className="movies">
                 {trendigSeries.map((tvSeries: TvSeries) => (
                     <div key={tvSeries.id} className="movieItems">
