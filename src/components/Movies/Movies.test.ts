@@ -1,4 +1,3 @@
-
 import { getPopularMovies } from "../Movies/Service";
 test('list of popular movies', async () => {
     const response = {
