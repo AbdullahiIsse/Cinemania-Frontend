@@ -8,6 +8,8 @@ import {UserContext} from "../../Context/UserContext.tsx";
 import {Button} from "@mantine/core";
 import defaultImages from "../../assets/images.png";
 import CardList from "../card-list/card-list.tsx";
+import Review from "../Review/review.tsx";
+import {getAvgCinemaniaRating, getCountOfCinemaniaRating} from './Service.tsx';
 
 export function SerieDetails() {
     const {id} = useParams<{ id: string }>();
@@ -18,6 +20,8 @@ export function SerieDetails() {
     const [serieDetails, setSerieDetails] = useState<TVShow | null>(null);
     const [serieCredits, setSerieCredits] = useState<TvSeriesCredit | null>(null);
     const [serieRecommendation, setSerieRecommendation] = useState<SeriesRecommendations | null>(null);
+    const [avg, setAvg] = useState(0);
+    const [count, setCount] = useState(0);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -51,6 +55,27 @@ export function SerieDetails() {
         getSeriesRecommendation(serieId)
             .then((data: SeriesRecommendations | null) => {
                 setSerieRecommendation(data);
+            })
+            .catch((error: any) => {
+                console.error(error);
+            });
+    }, [serieId]);
+
+    useEffect(() => {
+        getAvgCinemaniaRating(serieId)
+            .then((data: number ) => {
+                setAvg(data);
+            })
+            .catch((error: any) => {
+                console.error(error);
+            });
+    }, [serieId]);
+
+
+    useEffect(() => {
+        getCountOfCinemaniaRating(serieId)
+            .then((data: number ) => {
+                setCount(data);
             })
             .catch((error: any) => {
                 console.error(error);
@@ -116,6 +141,9 @@ export function SerieDetails() {
                 <br/>
                 <p><strong>TMDB Rating Vote count: </strong> {serieDetails.vote_count}</p>
                 <br/>
+                <p><strong>Cinemania Average Rating:</strong> {avg ? avg : "Be the first to give the Tv-Series a rating"}</p>
+                <br/>
+                <p><strong>Cinemania Rating Vote count: </strong> {count ? count : "Be the first to give the Tv-Series a rating"}</p>
                 <br/>
 
                 <h2>Cast & Crew:</h2>
@@ -166,6 +194,10 @@ export function SerieDetails() {
 
                 </div>
             </div>
+            <br/>
+            <br/>
+
+            <Review movieId={serieId}/>
         </div>
     );
 }

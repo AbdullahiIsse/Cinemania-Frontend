@@ -1,13 +1,19 @@
 import {useContext, useEffect, useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {MovieCastRecommendations, MovieCredits, MovieDetail} from '../movieDetails/Types.tsx';
-import {getMovieDetails, getMovieDetailsCredits, getMovieRecommendations} from '../movieDetails/Service.tsx';
+import {
+    getAvgCinemaniaRating, getCountOfCinemaniaRating,
+    getMovieDetails,
+    getMovieDetailsCredits,
+    getMovieRecommendations
+} from '../movieDetails/Service.tsx';
 import './MovieDetails.css';
-import {Button} from "@mantine/core";
+import {Button, Rating} from "@mantine/core";
 import {FavoritesContext} from "../../Context/FavoritesContext.tsx";
 import {UserContext} from "../../Context/UserContext.tsx";
 import CardList from "../card-list/card-list.tsx";
 import defaultImages from '../../assets/images.png'
+import Review from "../Review/review.tsx";
 
 export function MovieDetails() {
     const {id} = useParams<{ id: string }>();
@@ -19,6 +25,8 @@ export function MovieDetails() {
     const [movieDetails, setMovieDetails] = useState<MovieDetail | null>(null);
     const [movieDetailsCredits, setMovieDetailsCredits] = useState<MovieCredits | null>(null);
     const [movieRecommendations, setMovieRecommendations] = useState<MovieCastRecommendations | null>(null);
+    const [avg, setAvg] = useState(0);
+    const [count, setCount] = useState(0);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const itemAddedToFavoriteList = favoritesListItems.find(({id}) => id === movieDetails?.id);
@@ -56,6 +64,28 @@ export function MovieDetails() {
                 console.error(error);
             });
     }, [movieId,currentUser]);
+
+    useEffect(() => {
+        getAvgCinemaniaRating(movieId)
+            .then((data: number ) => {
+                setAvg(data);
+            })
+            .catch((error: any) => {
+                console.error(error);
+            });
+    }, [movieId]);
+
+
+    useEffect(() => {
+        getCountOfCinemaniaRating(movieId)
+            .then((data: number ) => {
+                setCount(data);
+            })
+            .catch((error: any) => {
+                console.error(error);
+            });
+    }, [movieId]);
+
 
     if (!movieDetails) {
         return <div>Loading movie details...</div>;
@@ -123,7 +153,10 @@ export function MovieDetails() {
                 <br/>
                 <p><strong>TMDB Rating Vote count: </strong> {movieDetails.vote_count}</p>
                 <br/>
-
+                <p><strong>Cinemania Average Rating:</strong> {avg ? <Rating value={avg} fractions={2} readOnly /> : "Be the first to give the movie a rating"}</p>
+                <br/>
+                <p><strong>Cinemania Rating Vote count: </strong> {count ? count : "Be the first to give the movie a rating"}</p>
+                <br/>
                 <br/>
                 <h2>Cast & Crew:</h2>
                 <div className='movies_details_credit_cast'>
@@ -172,6 +205,10 @@ export function MovieDetails() {
 
 
             </div>
+            <br/>
+            <br/>
+
+            <Review movieId={movieId}/>
         </div>
     );
 }

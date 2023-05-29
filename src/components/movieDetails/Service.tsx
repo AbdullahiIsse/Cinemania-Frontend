@@ -76,5 +76,49 @@ export async function getMovieRecommendations(movieId: number) {
     }
 }
 
+export async function getAvgCinemaniaRating(movieId: number) {
+    const url = `https://cinmania1.azurewebsites.net/api/review/movie/avg/${movieId}`;
+    const options = {
+        method: 'GET',
+    };
+
+    try {
+        const response = await fetch(url, options);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } else {
+            console.error('Request failed with status:', response.status);
+            return null;
+        }
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+export async function getCountOfCinemaniaRating(movieId: number) {
+    const url = `https://cinmania1.azurewebsites.net/api/review/movie/count/${movieId}`;
+    const options = {
+        method: 'GET',
+    };
+
+    try {
+        const response = await fetch(url, options);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } else {
+            console.error('Request failed with status:', response.status);
+            return null;
+        }
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 
 
