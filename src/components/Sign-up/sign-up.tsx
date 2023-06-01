@@ -1,6 +1,6 @@
 import {useState} from "react";
 import FormInput from "../Form-input/form-input.tsx";
-import {Button} from "@mantine/core";
+import {Button, Loader} from "@mantine/core";
 import {createAuthUserWithEmailAndPassword, createUserToDbFromAuth} from "../../Utils/Firebase.ts";
 import {notifications} from "@mantine/notifications";
 import {useNavigate} from "react-router-dom";
@@ -16,6 +16,8 @@ const SignUp = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {displayName, email, password, confirmPassword} = formFields;
+    const [loading, setLoading] = useState(false);
+
 
 
     const resetFormsField = () => {
@@ -37,7 +39,9 @@ const SignUp = () => {
         try {
             const {user}: any = await createAuthUserWithEmailAndPassword(email, password);
             user.displayName = displayName;
+            setLoading(true);
             await createUserToDbFromAuth(user)
+            setLoading(false);
             resetFormsField();
             navigate("/")
             notifications.show({
@@ -69,6 +73,9 @@ const SignUp = () => {
         setFormFields({...formFields, [name]: value})
     }
 
+    if(loading) return (
+        <Loader color="dark" size="xl" />
+    );
 
     return (<div className={'sign-up-container'}>
         <h2>Don't have an account?</h2>

@@ -65,7 +65,6 @@ const SignIn = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
-        console.log("test")
         navigate("/")
         notifications.show({
             title: 'Congratulation',
